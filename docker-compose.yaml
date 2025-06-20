@@ -106,7 +106,7 @@ services:
   producer:
     build:
       context: ./producer
-      dockerfile: dockerfile  # ↔️ Đảm bảo Dockerfile có ENTRYPOINT/CMD
+      dockerfile: dockerfile  
     depends_on:
       kafka:
         condition: service_healthy
@@ -139,7 +139,7 @@ services:
     <<: *airflow-common
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./data:/opt/airflow/data  # ➕ Mount để DAG đọc file
+      - ./data:/opt/airflow/data 
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./config:/opt/airflow/config
@@ -163,7 +163,7 @@ services:
     <<: *airflow-common
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./data:/opt/airflow/data  # ➕ Mount để DAG đọc/ghi
+      - ./data:/opt/airflow/data 
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./config:/opt/airflow/config
